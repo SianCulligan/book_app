@@ -1,14 +1,17 @@
 # book_app
 
 Number and name of feature: ________________________________
+* Create a form
+* Link Css sheets 
+* create file structure
+* Reach MVP
+Estimate of time needed to complete: __2___
 
-Estimate of time needed to complete: _____
+Start time: 7:00 pm
 
-Start time: _____
+Finish time: 9:15 pm
 
-Finish time: _____
-
-Actual time needed to complete: _____
+Actual time needed to complete: 2.25 hrs
 
 
 **Author**: Krystal Madrinan & Sian Culligan
@@ -25,10 +28,15 @@ express, superagent, cors, pg, dotenv, ejs
 
 ## Change Log
 <!-- Use this area to document the iterative changes made to your application as each feature is successfully implemented. Use time stamps. Here's an examples:
+-->
 
-01-01-2001 4:59pm - Application now has a fully-functional express server, with GET and POST routes for the book resource.
+02-05-2020 9:15pm - It's working! All features complete, generates image, author, title, & description. 
+
 
 ## Credits and Collaborations
-<!-- Give credit (and a link) to other people or resources that helped you build this application. -->
 
 https://stackoverflow.com/questions/29442991/how-to-display-an-image-tag-with-the-ejs-template-engine-for-node-js
+
+John's Demo code
+
+https://www.w3schools.com/jsref/jsref_replace.asp
