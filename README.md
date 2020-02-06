@@ -30,3 +30,5 @@ express, superagent, cors, pg, dotenv, ejs
 
 ## Credits and Collaborations
 <!-- Give credit (and a link) to other people or resources that helped you build this application. -->
+
+https://stackoverflow.com/questions/29442991/how-to-display-an-image-tag-with-the-ejs-template-engine-for-node-js

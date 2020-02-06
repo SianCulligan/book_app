@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Book Collection</title>
+    <link rel="stylesheet" href="/styles/reset.css" />
+    <link rel="stylesheet" href="/styles/base.css" />
+    <link rel="stylesheet" href="/styles/modules.css" />
+    <link rel="stylesheet" href="/styles/icons.css" />
+    <link rel="stylesheet" href="/styles/layout.css" />
+  </head>
+  <body>
+    <main>
+        <% searchResults.forEach( book => { %>
+            <img src="<%= book.image %>" alt="">
+            <h3><%= book.title %></h3>
+            <h4><%= book.author %></h4>
+            <p><%= book.description %></p>
+        <% }) %>
+    </main>
+  </body>
+</html>
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Book App</title>
+    <link rel="stylesheet" href="/styles/reset.css" />
+    <link rel="stylesheet" href="/styles/base.css" />
+    <link rel="stylesheet" href="/styles/modules.css" />
+    <link rel="stylesheet" href="/styles/icons.css" />
+    <link rel="stylesheet" href="/styles/layout.css" />
+    
+</head>
+<body>
+    <form action="/contact" method="post"></form>
+    <% searchResults.forEach( book => { %>
+        <h3><%= book.title %></h3>
+        <img href=>
+    <% }) %>
+    
+</body>
+</html> -->
