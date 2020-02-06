@@ -1,0 +1,27 @@
+{
+  "name": "book_app",
+  "version": "1.0.0",
+  "description": "Number and name of feature: ________________________________",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SianCulligan/book_app.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/SianCulligan/book_app/issues"
+  },
+  "homepage": "https://github.com/SianCulligan/book_app#readme",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "ejs": "^3.0.1",
+    "express": "^4.17.1",
+    "pg": "^7.18.1",
+    "superagent": "^5.2.1"
+  }
+}
