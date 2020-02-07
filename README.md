@@ -40,3 +40,22 @@ https://stackoverflow.com/questions/29442991/how-to-display-an-image-tag-with-th
 John's Demo code
 
 https://www.w3schools.com/jsref/jsref_replace.asp
+
+Hamburger Menu: 
+
+https://codepen.io/erikterwan/pen/EVzeRP
+
+
+
+# Style Guide and Color Palette
+
+## Colors:
+#0408F
+#507DBC
+#A1C6EA
+#BBD1EA
+#DAE3E5
+
+#253956 MENU TEXT ON HOVER
+
+## Google Fonts:

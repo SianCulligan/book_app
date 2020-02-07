@@ -1,33 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Book Collection</title>
 
-    <link rel="stylesheet" href="/styles/reset.css" />
-    <link rel="stylesheet" href="/styles/base.css" />
-    <link rel="stylesheet" href="/styles/modules.css" />
-    <link rel="stylesheet" href="/styles/icons.css" />
-    <link rel="stylesheet" href="/styles/layout.css" />
-  </head>
-  <body>
-    <main>
-      <h4>Search by Title or Author</h4>
-      <form action="/searches" method="post">
-        <input type="text" name="search" placeholder="Enter a title or author" required>
-        <fieldset>
-          <label for="title">
-            <span>Title</span>
-            <input type="radio" name="search" value="title" required>
-          </label>
-        </fieldset>
-        <fieldset>
-          <label for="author">
-            <span>Author</span>
-            <input type="radio" name="search" value="author" required>
-          </label>
-        </fieldset>
-        <button type="submit">Search the Google Books API</button>
-      </form>
-    </main>
-  </body>
+<head>
+  <title>Book Collection</title>
+
+  <link rel="stylesheet" href="/styles/reset.css" />
+  <link rel="stylesheet" href="/styles/base.css" />
+  <link rel="stylesheet" href="/styles/modules.css" />
+  <link rel="stylesheet" href="/styles/icons.css" />
+  <link rel="stylesheet" href="/styles/layoutnew.css" />
+</head>
+
+<body>
+  <main>
+    <!-- HAMBURGER MENU  -->
+
+    <!--    Made by Erik Terwan    -->
+    <!--   24th of November 2015   -->
+    <!--        MIT License        -->
+    <nav role="navigation">
+      <div id="menuToggle">
+        <!--
+    A hidden checkbox is used as click reciever,
+    so you can use the :checked selector on it.
+    -->
+        <input type="checkbox" />
+<!-- Spans act as the hamburger. -->
+        <span></span>
+        <span></span>
+        <span></span>
+
+  
+        <ul id="menu">
+          <a href="/">
+            <li>Home</li>
+          </a>
+          <a href="/searches/new">
+            <li>Search</li>
+          </a>
+
+          <a href="/credits">
+            <li>Credits</li>
+          </a>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- SEARCH FORM  -->
+    <h4>Search by Title or Author</h4>
+    <form action="/searches" method="post">
+      <input type="text" name="search" placeholder="Enter a title or author" required>
+      <fieldset>
+        <label for="title">
+          <span>Title</span>
+          <input type="radio" name="search" value="title" required>
+        </label>
+      </fieldset>
+      <fieldset>
+        <label for="author">
+          <span>Author</span>
+          <input type="radio" name="search" value="author" required>
+        </label>
+      </fieldset>
+      <button type="submit">Search</button>
+    </form>
+  </main>
+</body>
+
 </html>

@@ -11,16 +11,17 @@ const PORT = process.env.PORT;
 app.set('view engine', 'ejs');
 
 app.use(express.static('./public'));
-app.use(express.urlencoded({ extended: true}));
+app.use(express.urlencoded({ extended: true }));
 
 app.get('/', renderHomePage);
 app.get('/searches/new', showForm);
+app.get('/credits', showCredits);
 
 app.post('/searches', createSearch);
 
 function Book(info) {
 
-  this.image = info.imageLinks.smallThumbnail.replace('http://','https://') || placeholderImage;
+  this.image = info.imageLinks.smallThumbnail.replace('http://', 'https://') || placeholderImage;
   const placeholderImage = 'https://i.imgur.com/J5LVHEL.jpg';
   this.title = info.title || 'No title available';
   this.author = info.authors || 'None of your business';
@@ -33,6 +34,10 @@ function renderHomePage(request, response) {
 
 function showForm(request, response) {
   response.render('pages/searches/new.ejs');
+}
+
+function showCredits(request, respone) {
+  respone.render('pages/credits.ejs');
 }
 
 function createSearch(request, response) {
