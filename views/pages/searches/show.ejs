@@ -6,41 +6,52 @@
     <link rel="stylesheet" href="/styles/base.css" />
     <link rel="stylesheet" href="/styles/modules.css" />
     <link rel="stylesheet" href="/styles/icons.css" />
-    <link rel="stylesheet" href="/styles/layout.css" />
+    <link rel="stylesheet" href="/styles/layoutshow.css" />
   </head>
   <body>
     <main>
-        <% searchResults.forEach( book => { %>
-            <img src="<%= book.image %>" alt="">
-            <h3><%= book.title %></h3>
-            <h4><%= book.author %></h4>
-            <p><%= book.description %></p>
-        <% }) %>
+
+      <!--    Made by Erik Terwan    -->
+  <!--   24th of November 2015   -->
+  <!--        MIT License        -->
+  <nav role="navigation">
+    <div id="menuToggle">
+      <!--
+    A hidden checkbox is used as click reciever,
+    so you can use the :checked selector on it.
+    -->
+      <input type="checkbox" />
+
+      <!-- Spans act as the hamburger. -->
+      <span></span>
+      <span></span>
+      <span></span>
+
+  
+      <ul id="menu">
+        <a href="/">
+          <li>Home</li>
+        </a>
+        <a href="/searches/new">
+          <li>Search</li>
+        </a>
+
+        <a href="/credits">
+          <li>Credits</li>
+        </a>
+      </ul>
+    </div>
+  </nav>
+    <% searchResults.forEach( book => { %>
+      <div class="cards">
+        <img src="<%= book.image %>" alt="">
+        <h3><%= book.title %></h3>
+        <h4><%= book.author %></h4>
+        <p><%= book.description %></p>
+      </div>
+  <% }) %>
+
+        
     </main>
   </body>
 </html>
-
-
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Book App</title>
-    <link rel="stylesheet" href="/styles/reset.css" />
-    <link rel="stylesheet" href="/styles/base.css" />
-    <link rel="stylesheet" href="/styles/modules.css" />
-    <link rel="stylesheet" href="/styles/icons.css" />
-    <link rel="stylesheet" href="/styles/layout.css" />
-    
-</head>
-<body>
-    <form action="/contact" method="post"></form>
-    <% searchResults.forEach( book => { %>
-        <h3><%= book.title %></h3>
-        <img href=>
-    <% }) %>
-    
-</body>
-</html> -->

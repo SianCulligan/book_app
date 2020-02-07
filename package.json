@@ -1,7 +1,7 @@
 {
   "name": "book_app",
   "version": "1.0.0",
-  "description": "Number and name of feature: ________________________________",
+  "description": "",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -11,7 +11,7 @@
     "type": "git",
     "url": "git+https://github.com/SianCulligan/book_app.git"
   },
-  "author": "",
+  "author": " Sian Cullingan, Krystal Madrinan",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/SianCulligan/book_app/issues"
