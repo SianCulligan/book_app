@@ -41,6 +41,10 @@ John's Demo code
 
 https://www.w3schools.com/jsref/jsref_replace.asp
 
+Hamburger Menu: 
+
+https://codepen.io/erikterwan/pen/EVzeRP
+
 
 
 # Style Guide and Color Palette
