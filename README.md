@@ -27,8 +27,6 @@ clone this repo https://github.com/SianCulligan/book_app.git
 express, superagent, cors, pg, dotenv, ejs
 
 ## Change Log
-<!-- Use this area to document the iterative changes made to your application as each feature is successfully implemented. Use time stamps. Here's an examples:
--->
 
 02-05-2020 9:15pm - It's working! All features complete, generates image, author, title, & description. 
 
