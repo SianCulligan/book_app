@@ -20,7 +20,6 @@ app.get('/credits', showCredits);
 app.post('/searches', createSearch);
 
 function Book(info) {
-
   this.image = info.imageLinks.smallThumbnail.replace('http://', 'https://') || placeholderImage;
   const placeholderImage = 'https://i.imgur.com/J5LVHEL.jpg';
   this.title = info.title || 'No title available';
