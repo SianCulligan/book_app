@@ -81,9 +81,9 @@ function errorHandler(error, response) {
 
 
 function addBookToCollection(request, response) {
+  let { title, bookdescription, author, imageurl } = request.body;
   console.log(request.body);
-  let { title, bookdescription, author, imageurl} = request.body;
-  let SQL = 'INSERT INTO books(title, description, author, imageurl) VALUES ($1, $2, $3, $4);';
+  let SQL = 'INSERT INTO books(title, bookdescription, author, imageurl) VALUES ($1, $2, $3, $4);';
   let values = [title, bookdescription, author, imageurl];
 
   return client.query(SQL, values)
