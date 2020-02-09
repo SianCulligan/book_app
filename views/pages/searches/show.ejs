@@ -39,12 +39,19 @@
       </ul>
     </div>
   </nav>
+
+  <form id="book-form" action="/addtocollection" method="post">
+    <fieldset>
     <% searchResults.forEach( book => { %>
       <div class="cards">
-        <img src="<%= book.image %>" alt="">
+        <button type="submit">Add to Collection.</button>
+        <img src="<%= book.imageurl %>" alt="">
         <h3><%= book.title %></h3>
         <h4><%= book.author %></h4>
-        <p><%= book.description %></p>
+        <p><%= book.bookdescription %></p>
+        </div>
+    </fieldset>
+  </form>
       </div>
   <% }) %>    
     </main>

@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -42,15 +42,10 @@
         </ul>
       </div>
     </nav>
-    <h1>Welcome to the Book App.</h1>
+    <h1>Book detail.</h1>
 
-
-    <!-- if data exists in  the database-->
-    <!-- if not , render to page & add to database -->
-    <p>Total # of books: <%= results.length %> </p>
-  
     <% results.forEach( book => { %>
-      <%- include('../pages/books/detail', { book: book }) %>
+        <%- include('./detail.ejs', {book: book}) %>
       <% }) %>  
 
 

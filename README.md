@@ -14,6 +14,21 @@ Finish time: 9:15 pm
 Actual time needed to complete: 2.25 hrs
 
 
+
+Number and name of feature: ________________________________
+* Create and save to a database
+* Create single view for user
+* User ability to add book to collection
+* Consistent design with Partials
+* Further improve UI 
+Estimate of time needed to complete: __3__
+
+Start time: 1:30 pm
+
+Finish time:  pm
+
+Actual time needed to complete:  hrs
+
 **Author**: Krystal Madrinan & Sian Culligan
 **Version**: 1.0.0 (increment the patch/fix version number if you make more commits past your first submission)
 
