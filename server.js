@@ -19,9 +19,7 @@ app.use(express.urlencoded({ extended: true }));
 app.get('/', renderHomePage);
 app.get('/searches/new', showForm);
 app.get('/credits', showCredits);
-// app.get('/books/show', getBook);
 app.get('/books/:id', returnDetails);
-
 
 app.post('/searches', createSearch);
 app.post('/addtocollection', addBookToCollection);
@@ -51,11 +49,7 @@ function renderHomePage(request, response) {
   return client.query(SQL)
     .then(results => response.render('pages/index.ejs', { results: results.rows }))
     .catch(errorHandler);
-  // response.render('pages/index.ejs');
 }
-
-// function getBook(request, response) {
-// }
 
 function showForm(request, response) {
   response.render('pages/searches/new.ejs');
@@ -77,8 +71,6 @@ function createSearch(request, response) {
 function errorHandler(error, response) {
   response.render('pages/error.ejs', { error: 'Uh Oh' });
 }
-
-
 
 function addBookToCollection(request, response) {
   let { title, bookdescription, author, imageurl } = request.body;

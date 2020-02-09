@@ -1,44 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Book Collection</title>
-    <link rel="stylesheet" href="/styles/reset.css" />
-    <link rel="stylesheet" href="/styles/base.css" />
-    <link rel="stylesheet" href="/styles/modules.css" />
-    <link rel="stylesheet" href="/styles/icons.css" />
-    <link rel="stylesheet" href="/styles/layoutshow.css" />
+    <%- include('../layout/head.ejs') %>
   </head>
   <body>
     <main>
+      <header>
+        <%- include('../layout/header.ejs') %>
+      </header>
       <h1>Search Results:</h1>
-      <!--    Made by Erik Terwan    -->
-  <!--   24th of November 2015   -->
-  <!--        MIT License        -->
-  <nav role="navigation">
-    <div id="menuToggle">
-      <!--
-    A hidden checkbox is used as click reciever,
-    so you can use the :checked selector on it.
-    -->
-      <input type="checkbox" />
-      <!-- Spans act as the hamburger. -->
-      <span></span>
-      <span></span>
-      <span></span>
-      <ul id="menu">
-        <a href="/">
-          <li>Home</li>
-        </a>
-        <a href="/searches/new">
-          <li>Search</li>
-        </a>
 
-        <a href="/credits">
-          <li>Credits</li>
-        </a>
-      </ul>
-    </div>
-  </nav>
 
   <% searchResults.forEach( book => { %>
   <form id="book-form" action="/addtocollection" method="post">
