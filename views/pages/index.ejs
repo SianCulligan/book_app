@@ -4,21 +4,23 @@
 <head>
   <%- include('layout/head.ejs') %>
 </head>
+
 <body>
   <main>
     <header>
       <%- include('layout/header.ejs') %>
     </header>
-   
+
     <h1>Welcome to the Book App.</h1>
 
     <!-- if data exists in  the database-->
     <!-- if not , render to page & add to database -->
     <p>Total # of books: <%= results.length %> </p>
     <% results.forEach( book => { %>
-      <%- include('../pages/books/detail', { book: book }) %>
-      <% }) %>  
+    <%- include('../pages/books/detail', { book: book }) %>
+    <% }) %>
 
   </main>
 </body>
-</html> 
+
+</html>
