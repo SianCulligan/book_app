@@ -11,15 +11,16 @@ main {
     text-align: center;
 }
 
-button {
+button, a {
   background-color: #507DBC;
   font-family: "Avenir Next", "Avenir", sans-serif;
   font-size: larger;
   border-radius: 4px;
   color: azure;
+  text-decoration: none;
 }
 
-button:hover {
+button:hover, a:hover {
   box-shadow: 0 8px 16px 0 rgba(61, 61, 61, 0.2), 0 6px 20px 0 rgba(44, 44, 44, 0.19);
 }
 

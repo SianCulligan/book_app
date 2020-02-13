@@ -8,5 +8,4 @@ CREATE TABLE books (
   imageurl VARCHAR(255)
 );
 
-INSERT INTO books (title, bookdescription, author, imageurl) 
-VALUES('title', 'bookdescription', 'author', 'imageurl');
+
