@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <%- include('../layout/head.ejs') %>
+  <link rel="stylesheet" href="/styles/details.css" />
 </head>
 <body>
   <main>
@@ -9,10 +10,17 @@
       <%- include('../layout/header.ejs') %>
     </header>
     <h1>Book detail.</h1>
-
+    <div class='resultCard'>
     <% results.forEach( book => { %>
         <%- include('./detail.ejs', {book: book}) %>
-      <% }) %>  
+      <% }) %> 
+
+      <form action="/searches" method="post">
+          <a href="/">Back to Collection.</a>
+        <button>Delete.</button>
+        <button>Update.</button>
+      </form>
+    </div> 
   </main>
 </body>
 </html> 

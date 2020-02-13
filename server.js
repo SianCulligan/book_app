@@ -19,8 +19,8 @@ app.use(express.urlencoded({ extended: true }));
 app.get('/', renderHomePage);
 app.get('/searches/new', showForm);
 app.get('/credits', showCredits);
-app.get('/books/:id', returnDetails);
 
+app.post('/books/:id', returnDetails);
 app.post('/searches', createSearch);
 app.post('/addtocollection', addBookToCollection);
 
@@ -82,12 +82,6 @@ function addBookToCollection(request, response) {
     .then(response.redirect('/'))
     .catch(err => errorHandler(err, response));
 }
-
-
-
-
-
-
 
 app.get('*', (request, response) => response.status(404).send('This route does not exist'));
 

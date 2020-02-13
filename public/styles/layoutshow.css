@@ -1,9 +1,6 @@
-/* main {
-    text-align: center;
-} */
-
 h1 {
-  text-decoration: underline;
+  text-decoration: none;
+  font-weight: bolder;
   margin-left: 200px;
 }
 
@@ -13,14 +10,22 @@ main {
   justify-content: center;
 }
 
-.cards {
-  height: 400px;
-  width: 300px;
-  border: 1px solid #253956;
-  text-align: center;
-  color: #04080F;
-  margin: 30px;
-  margin-left: 200px;
+.cards, form {
+  width: 250px;
+  margin: auto;
+}
+
+.cards { 
   overflow: scroll;
+}
+
+div button, a {
+  padding: 10px;
+  margin: 7px 0px 55px 0px;
+  display: inline-block;
+}
+
+a{
+  margin: 7px 0px 11px 0px;
 }
 
