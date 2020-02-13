@@ -18,7 +18,10 @@
     <p>Total # of books: <%= results.length %> </p>
     <% results.forEach( book => { %>
       <div class='detailButton'>
-    <%- include('../pages/books/detail', { book: book }) %>
+    <%- include('../pages/books/detail', { 
+        book: book, 
+        bookshelf: bookshelf
+       }) %>
     <form  method='post' action='/books/<%= book.id %>'>
     <button>Details</button>
     </form>

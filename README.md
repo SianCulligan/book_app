@@ -29,11 +29,25 @@ Finish time:  pm
 
 Actual time needed to complete:  hrs
 
+
+
+Number and name of feature: ________________________________
+1. Update the details of a book so that it displays the way I want it to, according to my personalized preferences.
+2. Remove books from my collection so that it accurately represents my favorite books.
+
+Estimate of time needed to complete: 2 hr
+
+Start time: 6:30
+
+Finish time: _____
+
+Actual time needed to complete: _____
+
 **Author**: Krystal Madrinan & Sian Culligan
 **Version**: 1.0.0 (increment the patch/fix version number if you make more commits past your first submission)
 
 ## Overview
-Allows a user to find, save, delete books 
+Allows a user to find, save, update, & delete books 
 
 ## Getting Started
 clone this repo https://github.com/SianCulligan/book_app.git

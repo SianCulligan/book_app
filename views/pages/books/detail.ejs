@@ -6,5 +6,11 @@
     <img src="<%= book.imageurl %>" alt="">
     <h3><%= book.title %></h3>
     <h4><%= book.author %></h4>
+    <select name="" id="">
+      <% bookshelf.forEach ( bookshelf => { %>
+          <option value=""><%= bookshelf.categories %></option>
+          <% }) %>
+         </select>
+    <p><%= book.categories %></p>
     <p><%= book.bookdescription %></p>
     </section>

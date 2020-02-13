@@ -7,6 +7,7 @@ const app = express();
 const pg = require('pg');
 const superagent = require('superagent');
 const PORT = process.env.PORT;
+const methodOverride = require('method-override');
 
 const client = new pg.Client(process.env.DATABASE_URL);
 client.on('error', err => console.error(err));
@@ -15,15 +16,50 @@ app.set('view engine', 'ejs');
 
 app.use(express.static('./public'));
 app.use(express.urlencoded({ extended: true }));
+app.use(methodOverride('_method'));
 
 app.get('/', renderHomePage);
 app.get('/searches/new', showForm);
 app.get('/credits', showCredits);
+app.get('/books/:id', returnDetails);
 
 app.post('/books/:id', returnDetails);
+app.post('/updatedetails/:id', returnDetailsTwo);
 app.post('/searches', createSearch);
 app.post('/addtocollection', addBookToCollection);
 
+app.delete('/books/:id', deleteDetails);
+
+app.put('/books/:id', updateDetails);
+
+function updateDetails (request, response) {
+  console.log(request.body);
+  let id = request.params.id;
+  let title = request.body.title;
+  let bookdescription = request.body.bookdescription;
+  let author = request.body.author;
+  let imageurl = request.body.imageurl;
+  let categories = request.body.categories;
+  let SQL = 'UPDATE books SET title=$1, bookdescription=$2, author=$3, imageurl=$4, categories=$5 WHERE id = $5;';
+  let values = [title, bookdescription, author, imageurl, categories, id];
+  client.query(SQL, values)
+    .then(() => {
+      response.redirect(`/books/${id}`);
+    })
+    .catch(err => errorHandler(err, response));
+}
+
+
+function deleteDetails(request, response) {
+  let id = request.params.id;
+  let SQL = 'DELETE FROM books WHERE id = $1;';
+  let values = [id];
+  client.query(SQL, values)
+    .then(() => {
+      response.redirect('/');
+    })
+    .catch(err => errorHandler(err, response));
+}
 
 function returnDetails(request, response) {
   let SQL = 'SELECT * FROM books WHERE id=$1;';
@@ -35,6 +71,15 @@ function returnDetails(request, response) {
     .catch(err => errorHandler(err, response));
 }
 
+function returnDetailsTwo(request, response) {
+  let SQL = 'SELECT * FROM books WHERE id=$1;';
+  let values = [request.params.id];
+  return client.query(SQL, values)
+    .then(results => {
+      return response.render('pages/books/edit.ejs', { results: results.rows });
+    })
+    .catch(err => errorHandler(err, response));
+}
 
 function Book(info) {
   this.imageurl = info.imageLinks.smallThumbnail.replace('http://', 'https://') || placeholderImage;
@@ -42,12 +87,21 @@ function Book(info) {
   this.title = info.title || 'No title available';
   this.author = info.authors || 'None of your business';
   this.bookdescription = info.description || 'Absolutely not.';
+  this.categories = info.categories || 'Other.';
 }
 
 function renderHomePage(request, response) {
-  let SQL = 'SELECT * from books;';
+  let SQL = 'SELECT * FROM books;';
   return client.query(SQL)
-    .then(results => response.render('pages/index.ejs', { results: results.rows }))
+    .then(results => {
+      SQL = 'SELECT DISTINCT categories FROM books;';
+      client.query(SQL)
+        .then(bookshelf => {
+          console.log(bookshelf.rows);
+          response.render('pages/index.ejs', {
+            results: results.rows,
+            bookshelf: bookshelf.rows
+          })})})
     .catch(errorHandler);
 }
 
@@ -73,13 +127,20 @@ function errorHandler(error, response) {
 }
 
 function addBookToCollection(request, response) {
-  let { title, bookdescription, author, imageurl } = request.body;
-  console.log(request.body);
-  let SQL = 'INSERT INTO books(title, bookdescription, author, imageurl) VALUES ($1, $2, $3, $4);';
-  let values = [title, bookdescription, author, imageurl];
 
-  return client.query(SQL, values)
-    .then(response.redirect('/'))
+  let title = request.body.title;
+  let bookdescription = request.body.bookdescription;
+  let author = request.body.author;
+  let imageurl = request.body.imageurl;
+  let categories = request.body.categories;
+  console.log(request.body);
+  let SQL = 'INSERT INTO books(title, bookdescription, author, imageurl, categories) VALUES ($1, $2, $3, $4, $5) RETURNING *;';
+  let values = [title, bookdescription, author, imageurl, categories];
+  client.query(SQL, values)
+    .then( results => {
+      console.log(results);
+      response.redirect('/')
+    })
     .catch(err => errorHandler(err, response));
 }
 

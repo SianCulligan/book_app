@@ -11,7 +11,7 @@ main {
     text-align: center;
 }
 
-button, a {
+button, .home {
   background-color: #507DBC;
   font-family: "Avenir Next", "Avenir", sans-serif;
   font-size: larger;
@@ -20,7 +20,7 @@ button, a {
   text-decoration: none;
 }
 
-button:hover, a:hover {
+button:hover, .home:hover {
   box-shadow: 0 8px 16px 0 rgba(61, 61, 61, 0.2), 0 6px 20px 0 rgba(44, 44, 44, 0.19);
 }
 
