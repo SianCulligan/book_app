@@ -13,14 +13,20 @@
     <div class='resultCard'>
     <% results.forEach( book => { %>
         <%- include('./detail.ejs', {book: book}) %>
-      <% }) %> 
-
-      <form action="/searches" method="post">
-          <a href="/">Back to Collection.</a>
-        <button>Delete.</button>
-        <button>Update.</button>
-      </form>
-    </div> 
+        
+        <form action='/searches' method='post'>
+          <a class='home' href="/">Back to Collection.</a>
+        </form>
+        
+        <form method='post' action="/books/<%- book.id %>?_method=delete">
+          <button type='submit'>Delete.</button>
+        </form>
+        
+         <form action='/updatedetails/<%- book.id %>' method='post'>
+          <button type='submit'>Update.</button>
+        </form>
+        <% }) %> 
+      </div> 
   </main>
 </body>
 </html> 
