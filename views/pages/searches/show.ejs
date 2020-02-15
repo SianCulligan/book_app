@@ -12,7 +12,10 @@
 
 
   <% searchResults.forEach( book => { %>
-    <%- include('../books/detail.ejs', {book: book}) %>
+    <%- include('../books/detail.ejs', {
+      book: book,
+      bookshelf: bookshelf
+    }) %>
   <form id="book-form" action="/addtocollection" method="post">
     <fieldset>
       <button type="submit">Add to Collection.</button>

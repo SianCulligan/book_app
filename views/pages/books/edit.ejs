@@ -12,7 +12,10 @@
     <h1>Book detail.</h1>
     <div class='resultCard'>
     <% results.forEach( book => { %>
-        <%- include('./detail.ejs', {book: book}) %>
+        <%- include('./detail.ejs', {
+          book: book,
+          bookshelf: bookshelf
+        }) %>
         
         <form action='/searches' method='post'>
           <a class='home' href="/">Back to Collection.</a>
@@ -28,16 +31,14 @@
             <input type="text" name="author" value="<%- book.author %>" />
             <input type="text" name="bookdescription" value="<%- book.bookdescription %>" />
             <input type="text" name="categories" value="<%- book.categories %>" />
-            <select>
-              <option value="default">Pick a bookshelf.</option>
-              <option>Sci-fi.</option>
-              <option>Cooking.</option>
-              <option>Non-Fiction.</option>
-              <option>Fiction.</option>
-              <option>Horror.</option>
-              <option>Comedy.</option>
-              <option>Other.</option>
-            </select>
+            
+              <datalist id="bookshelves">
+                <% bookshelf.forEach(shelf => { %>
+                  <option value="<%= shelf.categories %>" />
+                    <% });%>
+              </datalist>
+             
+          
             <button type="submit">Save the book.</button>
           </form>
         <% }) %> 
