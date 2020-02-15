@@ -40,11 +40,12 @@ function updateDetails (request, response) {
   let author = request.body.author;
   let imageurl = request.body.imageurl;
   let categories = request.body.categories;
-  let SQL = 'UPDATE books SET title=$1, bookdescription=$2, author=$3, imageurl=$4, categories=$5 WHERE id = $5;';
+  let SQL = 'UPDATE books SET title=$1, bookdescription=$2, author=$3, imageurl=$4, categories=$5 WHERE id = $6;';
   let values = [title, bookdescription, author, imageurl, categories, id];
   client.query(SQL, values)
     .then(() => {
-      response.redirect(`/books/${id}`);
+      console.log('HELLO!');
+      response.redirect('/');
     })
     .catch(err => errorHandler(err, response));
 }
@@ -66,20 +67,42 @@ function returnDetails(request, response) {
   let values = [request.params.id];
   return client.query(SQL, values)
     .then(results => {
-      return response.render('pages/books/show.ejs', { results: results.rows });
+      let SQL = 'SELECT * FROM books;';
+      return client.query(SQL)
+        .then(() => {
+          SQL = 'SELECT DISTINCT categories FROM books;';
+          client.query(SQL)
+            .then(bookshelf => {
+              console.log(bookshelf.rows);
+              response.render('pages//books/show.ejs', {
+                results: results.rows,
+                bookshelf: bookshelf.rows
+              })})})
+        .catch(errorHandler);
     })
-    .catch(err => errorHandler(err, response));
 }
+
 
 function returnDetailsTwo(request, response) {
   let SQL = 'SELECT * FROM books WHERE id=$1;';
   let values = [request.params.id];
   return client.query(SQL, values)
     .then(results => {
-      return response.render('pages/books/edit.ejs', { results: results.rows });
+      let SQL = 'SELECT * FROM books;';
+      return client.query(SQL)
+        .then(() => {
+          SQL = 'SELECT DISTINCT categories FROM books;';
+          client.query(SQL)
+            .then(bookshelf => {
+              console.log('THIS IS WHAT YOU NEEEED!', bookshelf.rows);
+              response.render('pages/books/edit.ejs', {
+                results: results.rows,
+                bookshelf: bookshelf.rows
+              })})})
+        .catch(errorHandler);
     })
-    .catch(err => errorHandler(err, response));
 }
+
 
 function Book(info) {
   this.imageurl = info.imageLinks.smallThumbnail.replace('http://', 'https://') || placeholderImage;
@@ -97,7 +120,7 @@ function renderHomePage(request, response) {
       SQL = 'SELECT DISTINCT categories FROM books;';
       client.query(SQL)
         .then(bookshelf => {
-          console.log(bookshelf.rows);
+          console.log('render home page check',bookshelf.rows, results.rows);
           response.render('pages/index.ejs', {
             results: results.rows,
             bookshelf: bookshelf.rows
@@ -119,7 +142,20 @@ function createSearch(request, response) {
   if (request.body.search[1] === 'author') { url += `+inauthor:${request.body.search[0]}`; }
   superagent.get(url)
     .then(apiResponse => apiResponse.body.items.map(bookResult => new Book(bookResult.volumeInfo)))
-    .then(results => response.render('pages/searches/show', { searchResults: results }));
+    .then(results => {
+      let SQL = 'SELECT * FROM books;';
+      return client.query(SQL)
+        .then(() => {
+          SQL = 'SELECT DISTINCT categories FROM books;';
+          client.query(SQL)
+            .then(bookshelf => {
+              console.log(bookshelf.rows);
+              response.render('pages/searches/show', {
+                searchResults: results,
+                bookshelf: bookshelf.rows
+              })})})
+        .catch(errorHandler);
+    })
 }
 
 function errorHandler(error, response) {

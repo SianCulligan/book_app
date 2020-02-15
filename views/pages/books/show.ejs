@@ -12,7 +12,10 @@
     <h1>Book detail.</h1>
     <div class='resultCard'>
     <% results.forEach( book => { %>
-        <%- include('./detail.ejs', {book: book}) %>
+        <%- include('./detail.ejs', {
+          book: book,
+          bookshelf: bookshelf
+        }) %>
         
         <form action='/searches' method='post'>
           <a class='home' href="/">Back to Collection.</a>
